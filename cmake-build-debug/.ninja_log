@@ -1,0 +1,10 @@
+# ninja log v5
+0	73	1677145828921973208	source/CMakeFiles/railway.dir/railway/function.cpp.o	31a1f97acdd6ca6f
+0	74	1677145828921920185	test/CMakeFiles/railway_tests.dir/main.cpp.o	c5a0308097534b28
+74	114	1677145828966086000	source/librailway.a	505196d452568e85
+114	172	1677145829022490642	test/railway_tests	4172cd82b78575b3
+0	44	1677145838886831920	source/CMakeFiles/railway.dir/railway/function.cpp.o	31a1f97acdd6ca6f
+44	83	1677145838927999000	source/librailway.a	505196d452568e85
+83	165	1677145839008755639	test/railway_tests	4172cd82b78575b3
+0	55	1677145852446566239	test/CMakeFiles/railway_tests.dir/main.cpp.o	c5a0308097534b28
+55	119	1677145852511883707	test/railway_tests	4172cd82b78575b3

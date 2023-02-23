@@ -1,0 +1,12 @@
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/example/CMakeFiles/edit_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/example/CMakeFiles/rebuild_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/source/CMakeFiles/railway.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/source/CMakeFiles/edit_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/source/CMakeFiles/rebuild_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/test/CMakeFiles/railway_tests.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/test/CMakeFiles/edit_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/third_party/CMakeFiles/edit_cache.dir
+/Users/nikitamoskalev/workspace/railway/cmake-build-debug/third_party/CMakeFiles/rebuild_cache.dir
