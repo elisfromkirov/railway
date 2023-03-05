@@ -1,6 +1,5 @@
-#include <railway/function.hpp>
+#include <railway/fault/atomic.hpp>
 
 int main() {
-  railway::function();
   return 0;
 }

@@ -1,41 +1,21 @@
 cmake_minimum_required(VERSION 3.21)
 project(railway)
 
-set(CMAKE_CXX_STANDARD 20)
+include(cmake/build_options.cmake)
+include(cmake/compile_options.cmake)
 
-option(ADDRESS_SANITIZER "enable address sanitizer" OFF)
-
-option(BUILD_EXAMPLE "build examples" OFF)
-
-option(BUILD_TEST "build tests" OFF)
-
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    add_compile_options("-Wall")
-    add_compile_options("-Wextra")
-    add_compile_options("-Wpedantic")
-    add_compile_options("-g")
-    add_compile_options("-DON_DEBUG")
-    if(ADDRESS_SANITIZER)
-        add_compile_options("-fsanitize=address")
-        add_link_options("-fsanitize=address")
-        add_compile_options("-DON_ADDRESS_SANITIZER")
-    else()
-        # nothing more
-    endif()
-else()
-    add_compile_options("-Wall")
-    add_compile_options("-Wextra")
-    add_compile_options("-Wpedantic")
-endif()
-
-if(BUILD_EXAMPLE)
-    add_subdirectory(example)
+if(BUILD_WITH_EXAMPLE)
+    add_subdirectory(test)
 endif()
 
 add_subdirectory(source)
 
-if(BUILD_TEST)
+if(BUILD_WITH_TEST)
     add_subdirectory(test)
 endif()
 
 add_subdirectory(third_party)
+
+if(BUILD_WITH_WORKLOAD)
+    add_subdirectory(workload)
+endif()
