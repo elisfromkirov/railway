@@ -20,3 +20,23 @@ railway/
             linux/
             mac/
             windows/
+
+
+    linux/
+        detail/
+            handle.cpp
+            handle.hpp
+            reactor.cpp
+            reactor.hpp
+            reading_completion.hpp
+            writing_completion.hpp
+        async_acceptor.cpp
+        async_acceptor.hpp
+        async_reader.cpp
+        async_reader.hpp
+        async_writer.cpp
+        async_writer.hpp
+        socket_base.cpp
+        socket_base.hpp
+        socket.cpp
+        socket.hpp

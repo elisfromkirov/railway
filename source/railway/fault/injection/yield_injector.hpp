@@ -19,8 +19,7 @@ class YieldInjector {
   static constexpr const NumericType kDefaultSeed{42};
 
  public:
-  explicit YieldInjector(NumericType frequency = kDefaultFrequency,
-                         NumericType seed = kDefaultSeed) noexcept;
+  explicit YieldInjector(NumericType frequency = kDefaultFrequency, NumericType seed = kDefaultSeed) noexcept;
 
   void Inject() noexcept;
 
