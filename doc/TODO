@@ -1,42 +1,27 @@
+next tasks
+
+> add infra module core class node
+
+> add execution module interface
+
+> add core components
+    > memory_view
+    > result
+
+> refactor linux io into current structure
+
 railway/
-    coroutine/
-        mutex.hpp
-        wait_group.hpp
-        coroutine.hpp
-    execution/
-        execute.hpp
-        executor.hpp
-        job.hpp
-    fault/
-        injection/
-            inject.hpp
-            injector.hpp
-            yield_injector.hpp
-    memory/
-        buffer.hpp
-        buffer_view.hpp
     transport/
-        os/
-            linux/
-            mac/
-            windows/
-
-
-    linux/
-        detail/
-            handle.cpp
-            handle.hpp
-            reactor.cpp
-            reactor.hpp
-            reading_completion.hpp
-            writing_completion.hpp
-        async_acceptor.cpp
-        async_acceptor.hpp
-        async_reader.cpp
-        async_reader.hpp
-        async_writer.cpp
-        async_writer.hpp
-        socket_base.cpp
-        socket_base.hpp
-        socket.cpp
-        socket.hpp
+        linux/
+            detail/
+                completion
+                reactor
+                reactor_entry
+                handle
+            address
+            async_acceptor
+            async_reader
+            async_writer
+            port
+            socket
+            transport
