@@ -1,7 +1,8 @@
 #pragma once
 
-#include <railway/core/core.hpp>
-#include <railway/core/platform.hpp>
+#include <railway/platform/platform.hpp>
+
+#include <utility>
 
 #if defined(LINUX_TRANSPORT)
 
@@ -9,9 +10,11 @@ namespace railway {
 
 namespace transport {
 
+namespace detail {
+
 class Handle {
  public:
-  explicit Handle(int handle) noexcept;
+  explicit Handle(int handle = 0) noexcept;
 
   Handle(Handle&& other) noexcept;
   Handle& operator=(Handle&& other) noexcept;
@@ -24,6 +27,8 @@ class Handle {
  protected:
   int handle_;
 };
+
+}  // namespace handle
 
 }  // namespace transport
 

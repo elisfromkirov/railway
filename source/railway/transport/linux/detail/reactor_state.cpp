@@ -1,4 +1,4 @@
-#include <railway/transport/linux/reactor_entry.hpp>
+#include <railway/transport/linux/detail/reactor_state.hpp>
 
 #if defined(LINUX_TRANSPORT)
 
@@ -6,25 +6,29 @@ namespace railway {
 
 namespace transport {
 
-ReactorEntry::ReactorEntry(Handle handle) noexcept
+namespace detail {
+
+ReactorState::ReactorState(Handle handle) noexcept
     : Handle{std::move(handle)},
       reading_completion_{},
       writing_completion_{} {
 }
 
-int ReactorEntry::GetHandle() const noexcept {
+int ReactorState::GetHandle() const noexcept {
   return handle_;
 }
 
-ICompletion* ReactorEntry::ResetReadingCompletion(
+ICompletion* ReactorState::ResetReadingCompletion(
     ICompletion* reading_completion) noexcept {
   return reading_completion_.exchange(reading_completion);
 }
 
-ICompletion* ReactorEntry::ResetWritingCompletion(
+ICompletion* ReactorState::ResetWritingCompletion(
     ICompletion* writing_completion) noexcept {
   return writing_completion_.exchange(writing_completion);
 }
+
+}  // namespace detail
 
 }  // namespace transport
 

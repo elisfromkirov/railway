@@ -1,7 +1,6 @@
 #pragma once
 
-#include <railway/core/core.hpp>
-#include <railway/core/platform.hpp>
+#include <railway/platform/platform.hpp>
 
 #if defined(LINUX_TRANSPORT)
 
@@ -9,12 +8,16 @@ namespace railway {
 
 namespace transport {
 
+namespace detail {
+
 class ICompletion {
  public:
   virtual ~ICompletion() noexcept = default;
 
   virtual void Complete() noexcept = 0;
 };
+
+}  // namespace detail
 
 }  // namespace transport
 

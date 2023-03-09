@@ -1,7 +1,6 @@
 #pragma once
 
-#include <railway/core/core.hpp>
-#include <railway/core/platform.hpp>
+#include "platform/platform.hpp"
 
 #if defined(LINUX_TRANSPORT)
 

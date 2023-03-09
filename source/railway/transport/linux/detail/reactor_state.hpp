@@ -1,12 +1,13 @@
 #pragma once
 
-#include <railway/core/core.hpp>
-#include <railway/core/platform.hpp>
-
 #include <railway/fault/atomic.hpp>
 
-#include <railway/transport/linux/handle.hpp>
-#include <railway/transport/linux/completion.hpp>
+#include <railway/infra/node.hpp>
+
+#include <railway/platform/platform.hpp>
+
+#include <railway/transport/linux/detail/completion.hpp>
+#include <railway/transport/linux/detail/handle.hpp>
 
 #if defined(LINUX_TRANSPORT)
 
@@ -14,9 +15,12 @@ namespace railway {
 
 namespace transport {
 
-class ReactorEntry : private Handle {
+namespace detail {
+
+class ReactorState : private Handle,
+                     private infra::Node {
  public:
-  explicit ReactorEntry(Handle handle) noexcept;
+  explicit ReactorState(Handle handle) noexcept;
 
   int GetHandle() const noexcept;
 
@@ -28,6 +32,8 @@ class ReactorEntry : private Handle {
   fault::atomic<ICompletion*> reading_completion_;
   fault::atomic<ICompletion*> writing_completion_;
 };
+
+}  // namespace detail
 
 }  // namespace transport
 

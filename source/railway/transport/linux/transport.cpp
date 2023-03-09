@@ -6,6 +6,10 @@ namespace railway {
 
 namespace transport {
 
+Transport::Transport(execution::IExecutor& executor)
+    : reactor_{executor} {
+}
+
 Socket Transport::Listen(Address address, Port port) noexcept {
   /// TODO: Handle error using wheels::Result
   /// TODO: Wrap sockfd to Handle
@@ -30,7 +34,7 @@ Socket Transport::Listen(Address address, Port port) noexcept {
   fcntl(sockfd, F_SETFL, flags | O_NONBLOCK);
 
   /// TODO: Handle error using wheels::Result
-  ReactorEntry* entry = reactor_.Add(Handle{sockfd});
+  detail::ReactorState* state = reactor_.Add(detail::Handle{sockfd});
 
   /// return Socket{entry};
 }

@@ -5,12 +5,17 @@
 #define LINUX_TRANSPORT
 
 #include <arpa/inet.h>
-#include <fcntl.h>
+
 #include <netinet/ip.h>
+
+#include <sys/epoll.h>
 #include <sys/socket.h>
+
+#include <fcntl.h>
+
 #include <unistd.h>
 
-#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__DragonFly__)
+#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
 
 #define BSD_TRANSPORT
 

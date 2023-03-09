@@ -1,10 +1,12 @@
-#include <railway/transport/linux/handle.hpp>
+#include <railway/transport/linux/detail/handle.hpp>
 
 #if defined(LINUX_TRANSPORT)
 
 namespace railway {
 
 namespace transport {
+
+namespace detail {
 
 Handle::Handle(int handle) noexcept
     : handle_{handle} {
@@ -32,6 +34,8 @@ Handle::~Handle() noexcept {
 void Handle::Swap(Handle& other) noexcept {
   std::swap(handle_, other.handle_);
 }
+
+}  // namespace detail
 
 }  // namespace transport
 
