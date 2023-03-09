@@ -2,12 +2,12 @@
 
 #include <railway/fault/atomic.hpp>
 
-#include <railway/infra/node.hpp>
-
 #include <railway/platform/platform.hpp>
 
 #include <railway/transport/linux/detail/completion.hpp>
 #include <railway/transport/linux/detail/handle.hpp>
+
+#include <memory>
 
 #if defined(LINUX_TRANSPORT)
 
@@ -17,8 +17,7 @@ namespace transport {
 
 namespace detail {
 
-class ReactorState : private Handle,
-                     private infra::Node {
+class ReactorState : private Handle {
  public:
   explicit ReactorState(Handle handle) noexcept;
 

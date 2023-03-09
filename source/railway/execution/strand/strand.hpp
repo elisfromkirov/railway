@@ -7,7 +7,7 @@ namespace railway {
 
 namespace execution {
 
-class Strand {
+class Strand : public IExecutor {
  public:
   explicit Strand(IExecutor& underlying_executor) noexcept;
 
