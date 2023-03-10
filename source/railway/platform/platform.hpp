@@ -1,34 +1,84 @@
 #pragma once
 
-#if defined(linux) || defined(__linux) || defined(__linux__) || defined(__GNU__) || defined(__GLIBC__)
+#include <railway/core/core.hpp>
 
-#define LINUX_TRANSPORT
+namespace railway {
 
-#include <arpa/inet.h>
+namespace platform {
 
-#include <netinet/ip.h>
+/**
+ * @brief Makes TCP socket, establishes TCP connection to endpoint specified by address and port.
+ *
+ * @return TCP socket's handle
+ */
+int Connect(uint address, ushort port);
 
-#include <sys/epoll.h>
-#include <sys/socket.h>
+/**
+ * @brief Makes TCP socket, marks it as listener on endpoint specified by address and port.
+ *
+ * @return TCP socket's handle
+ */
+int Listen(uint address, ushort port);
 
-#include <fcntl.h>
+/**
+ * @brief Closes file, socket or pipe specified by handle.
+ */
+void Close(int handle);
 
-#include <unistd.h>
+/**
+ * @brief Reads at most size bytes from file, socket or pipe specified by handle to buffer.
+ */
+ulong Read(int handle, char* buffer, ulong size);
 
-#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+/**
+ * @brief Writes size bytes from buffer to file, socket or pipe specified by handle.
+ */
+ulong Write(int handle, const char* buffer, ulong size);
 
-#define BSD_TRANSPORT
+/**
+ * @biref Represents i/o event.
+ */
+struct Event {
+  /**
+   * @brief Notifies that reading is available.
+   */
+  bool reading_available;
 
-#elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+  /**
+   * @brief Notifies that writing is available.
+   */
+  bool writing_available;
 
-#define WINDOWS_TRANSPORT
+  /**
+   * @brief User defined state.
+   */
+  void* state;
+};
 
-#elif defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__)
+/**
+ * @brief Makes i/o notification queue.
+ *
+ * @return i/o notification queue handle.
+ */
+int MakePoll();
 
-#define MAC_TRANSPORT
+/**
+ * @brief Polls i/o notification queue specified by handle.
+ *
+ * @return Number of polled events.
+ */
+ulong Poll(int poll, Event* event, ulong size);
 
-#else
+/**
+ * @brief Adds handle with state to i/o notification queue.
+ */
+void EnqueueHandle(int poll, int handle, void* state);
 
-#error Platform not supported
+/**
+ * @brief Removes handle from i/o notification queue.
+ */
+void DequeueHandle(int poll, int handle);
 
-#endif
+}  // namespace platform
+
+}  // namespace railway

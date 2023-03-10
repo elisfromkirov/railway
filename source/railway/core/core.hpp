@@ -1,8 +1,9 @@
 #pragma once
 
 #include <cstdint>
-#include <utility>
 
-using Uint16 = std::uint32_t;
+using ushort = std::uint16_t;  // NOLINT
 
-using Uint32 = std::uint32_t;
+using uint = std::uint32_t;  // NOLINT
+
+using ulong = std::uint64_t;  // NOLINT
